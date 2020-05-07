@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+/* TADs usados */
+
+
+/* Constantes */
+#define LINHA 30
+#define MAXMUSIC 3000
+#define MAXPLAYLIST 1000
+
+/* prototipos das funcoes usadas no main */
+
+void interpretador();
+
+/*
+e <matricula> <hh:mm> -> entrada dum carro no estacionamento.
+s <matricula> <hh:mm> -> saída dum carro no estacionamento, e apresentação do valor a pagar.
+l -> listagem de todos os carros que entraram no estacionamento e ainda não saíram. Os carros devem aparecer pela ordem de registo de entrada.
+c -> consulta do dinheiro em caixa no estacionamento.
+x -> saida da aplicação, e apresentação do valor em caixa e do número de carros no estacionamento.
+*/
+
+void start(int * N, int * T);
+void quit();
+
+int main(void){
+    int N,T; /*  N: limite de musicas de uma playlist e T: maximo de duracao de uma playlist */
+    start(&N, &T);
+    interpretador();
+	return 0;
+}
+
+void start(int * N, int * T){
+	scanf("%d %d", N, T);
+	fflush(stdin);
+	printf("Jukebox aberta.\n");
+}
+
+void interpretador(){
+    char cmd[LINHA];
+
+	while (1){
+        scanf("%s", cmd);
+        if (strcmp(cmd,"upload") == 0){
+            printf("up");
+        }
+        else if (strcmp(cmd,"cona") == 0){
+            printf ("cona");
+        }
+        else if (strcmp(cmd,"quit") == 0){
+            quit();
+            break;
+        }
+        else printf("Comando inexistente.\n");
+        fflush(stdin);
+	}
+}
+
+void quit(){
+    printf("Jukebox encerrada.\n");
+}
